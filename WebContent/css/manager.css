@@ -1,0 +1,78 @@
+@charset "UTF-8";
+.topfix{
+	opacity: 0.94; 
+	background-color:#49416B;
+	animation:topf 1s forwards;
+	-webkit-animation: topf 1s forwards;
+}
+body{
+	margin:0;
+	background-image: url(/EP2/pics/login/lgbg.jpg);
+	background-size:cover;
+}
+
+@keyframes topf {
+	from { height:0;}
+	to {height:40px;}
+}
+@-webkit-keyframes topf {
+	from {height:0;}
+	to {height:40px;}
+}
+.topt{
+	display:inline-block;
+	font-size:25px;
+	animation:topt 1s forwards;
+	-webkit-animation: topt 1s forwards;
+}
+@keyframes topt {
+	from { color:#6E8B3D;}
+	to {color:#fff;}
+}
+@-webkit-keyframes topt {
+	from {color:#6E8B3D;}
+	to {color:#fff;}
+}
+.topbdiv{
+	border:1;
+	display:inline-block;
+	position:fixed;
+	right:0;
+	height:40px;
+	background-color:none;
+}
+.topbdiv:hover{
+	animation:redbuttom 1s forwards;
+	-webkit-animation: redbuttom 1s forwards;
+}
+
+.topbuttom{
+	font-size:15px;
+	height:40px;
+	border:0;
+	background: none;
+	animation:topbut 1s forwards;
+	-webkit-animation: topbut 1s forwards;
+	/*background: linear-gradient(top,#676767,#676767);*/
+	/*background: -webkit-linear-gradient(top,#676767,#676767);*/
+	
+}
+/*身份信息*/
+@keyframes topbut {
+	from {color:#6E8B3D;}
+	to {color:#fff;}
+}
+@-webkit-keyframes topbut {
+	from {color:#6E8B3D;}
+	to {color:#fff;}
+}
+}
+@keyframes redbuttom {
+	from {}
+	to {background-color:#A52A2A;}
+}
+@-webkit-keyframes redbuttom {
+	from {}
+	to {background-color:#A52A2A;}
+}
+}

@@ -1,0 +1,24 @@
+@charset "UTF-8";
+body {
+	/*background-image: url(/EP2/pics/login/lgbg.jpg);*/
+	margin:0;
+	background-size: cover;
+	background-attachment:fixed;
+	animation: bodycolor 2s forwards;
+	-webkit-animation: bodycolor 2s forwards;
+}
+@keyframes bodycolor {
+	from {background-color:#6E8B3D;
+}
+
+to {background-color:#daa773;
+}
+
+}
+@-webkit-keyframes bodycolor { /*safari*/
+from {background:#6E8B3D;
+}
+
+to {background:#daa773;
+}
+}

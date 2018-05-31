@@ -1,0 +1,49 @@
+@charset "UTF-8";
+.apr_list_title{
+	position:absolute;
+	z-index:9;
+	margin-top:40px;
+	margin-left:120px;
+	animation:aptitle 1s forwards;
+	-webkit-animation:aptitle 1s forwards;
+}
+.aprline{
+	position:absolute;
+	z-index:9;
+	height:2px;
+	width:800px;
+	margin-top:130px;
+	margin-left:130px;
+	background-color:#3f5d89;
+}
+.applyapr{
+	position:absolute;
+	border:solid 1px #000;
+	height:40%;
+	width:350px;;
+	margin-top:145px;
+	margin-left:135px
+}
+.situ{
+	position:absolute;
+	border:solid 1px #000;
+	height:40%;
+	width:350px;
+	margin-top:145px;
+	margin-left:500px
+}
+.infolist{
+	position:absolute;
+	z-index:9;
+	width:800px;
+	top:135px;
+	margin-left:70px;
+}
+@keyframes aptitle{
+	from{margin-top:190px;margin-left:320px;}
+	to{margin-top:40px;}
+}
+@-webkit-keyframes aptitle{
+	from{margin-top:190px;margin-left:320px;}
+	to{margin-top:40px;}
+}

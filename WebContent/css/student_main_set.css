@@ -1,0 +1,42 @@
+@charset "UTF-8";
+body {
+	/*background-image: url(/EP2/pics/login/lgbg.jpg);*/
+	margin:0;
+	background-size: cover;
+	background-attachment:fixed;
+	animation: bodycolor 2s forwards;
+	-webkit-animation: bodycolor 2s forwards;
+}
+.stumainfunc{
+	position:absolute;
+	left:20px;
+	top:75px;
+	width:96%;
+	z-index:15;
+	animation:mf 1s forwards;
+	-webkit-animation: mf 1s forwards;.
+}
+@keyframes bodycolor {
+	from {background-color:#6E8B3D;
+}
+
+to {background-color:#315183;
+}
+
+}
+@-webkit-keyframes bodycolor { /*safari*/
+from {background:#6E8B3D;
+}
+
+to {background:#315183;
+}
+}
+@keyframes mf {
+	0% {height:10px;background-color:#6E8B3D;}
+	100% {height:80%;background-color:#fff;box-shadow: 0px 0px 3px 3px #8c8c8c;}
+}
+@-webkit-keyframes mf {
+	0% {height:10px;background-color:#6E8B3D;}
+	100% {height:80%;background-color:#fff;box-shadow: 0px 0px 3px 3px #8c8c8c;}
+}
+}

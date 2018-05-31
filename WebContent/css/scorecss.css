@@ -1,0 +1,17 @@
+@charset "UTF-8";
+.score_list_title{
+	position:absolute;
+	z-index:9;
+	margin-top:40px;
+	margin-left:120px;
+	animation:sctitle 1s forwards;
+	-webkit-animation:sctitle 1s forwards;
+}
+@keyframes sctitle{
+	from{margin-top:190px;margin-left:440px;}
+	to{margin-top:40px;}
+}
+@-webkit-keyframes sctitle{
+	from{margin-top:190px;margin-left:440px;}
+	to{margin-top:40px;}
+}

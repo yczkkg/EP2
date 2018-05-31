@@ -1,0 +1,17 @@
+@charset "UTF-8";
+.hw_list_title{
+	position:absolute;
+	z-index:9;
+	margin-top:40px;
+	margin-left:120px;
+	animation:hwtitle 1s forwards;
+	-webkit-animation:hwtitle 1s forwards;
+}
+@keyframes hwtitle{
+	from{margin-top:190px;margin-left:560px;}
+	to{margin-top:40px;}
+}
+@-webkit-keyframes hwtitle{
+	from{margin-top:190px;margin-left:560px;}
+	to{margin-top:40px;}
+}

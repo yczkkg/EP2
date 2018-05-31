@@ -1,0 +1,206 @@
+@charset "UTF-8";
+.filt{
+	background-image: url(/EP2/pics/login/lgbg.jpg);
+	background-size: cover;
+	filter: blur(15px);
+	-webkit-filter:blur(15px);
+	position:fixed;
+	width:100%; height:100%;
+	z-index:1;
+}
+.topfix{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	z-index:10;
+	opacity: 0.94; 
+	background-color:#315183;
+	animation:topf 1s forwards;
+	-webkit-animation: topf 1s forwards;
+}
+.topt{
+	display:inline-block;
+	font-size:25px;
+	animation:topt 1s forwards;
+	-webkit-animation: topt 1s forwards;
+}
+Div{
+	overflow:hidden;
+	-webkit-overflow:hidden;
+}
+.topbdiv{
+	border:1;
+	display:inline-block;
+	position:fixed;
+	right:0;
+	height:40px;
+	background-color:none;
+}
+.topbdiv:hover{
+	animation:redbuttom 1s forwards;
+	-webkit-animation: redbuttom 1s forwards;
+}
+.topbdiv1{
+	border:1;
+	display:inline-block;
+	position:fixed;
+	right:80px;
+	height:40px;
+	background-color:none;
+}
+.topbdiv1:hover{
+	animation:bluebuttom 1s forwards;
+	-webkit-animation: bluebuttom 1s forwards;
+}
+.topbuttom{
+	font-size:15px;
+	height:40px;
+	border:0;
+	background: none;
+	animation:topbut 1s forwards;
+	-webkit-animation: topbut 1s forwards;
+	/*background: linear-gradient(top,#676767,#676767);*/
+	/*background: -webkit-linear-gradient(top,#676767,#676767);*/
+	
+}
+.selfinfo{
+	position:absolute;
+	color:#fff;
+	text-align:center;
+	line-height:30px;
+	font-size:12px;
+	left:15px;
+	top:100px;
+	z-index:20;
+	box-shadow: 0px 0px 3px 3px #8c8c8c;
+	animation:selfif 0.5s forwards;
+	-webkit-animation: selfif 0.5s forwards;
+}
+.clickdiv{
+	display:inline-block;
+	color:#474747;
+	/*border:solid 2px;*/
+	height:125px;
+	width:100px;
+}
+.expandcdiv{
+	display:inline-block;
+	color:#474747;
+	/*border:solid 2px;*/
+	height:125px;
+	width:100px;
+}
+.clickdiv:hover{
+	animation:bluebuttom 1s forwards;
+	-webkit-animation: bluebuttom 1s forwards;
+}
+.expandcdiv:hover{
+	animation:bluebuttom 1s forwards;
+	-webkit-animation: bluebuttom 1s forwards;
+}
+.imgb{
+	width:100px;height:100px;display:inline-block;
+}
+.clickfont{
+	display:inline-block;
+	width:100px;
+	height:50px;
+	text-align:center;
+	line-height:25px;
+}
+.noticebar{
+	position:absolute;
+	bottom:0;
+	z-index:21;
+	width:500px;
+	left:50%;
+	margin-left:-250px;
+	color:#fff;
+	background-color:#315183;
+	animation:notbar 10s forwards;
+	-webkit-animation:notbar 10s forwards;
+}
+.timeline{
+	margin-top:0;
+	height:3px;
+	background-color:#25d3e4;
+	animation:notbartl 10s linear forwards;
+	-webkit-animation:notbartl 10s linear forwards;
+}
+@keyframes topf {
+	from { height:0;}
+	to {height:40px;}
+}
+@-webkit-keyframes topf {
+	from {height:0;}
+	to {height:40px;}
+}
+@keyframes topt {
+	from { color:#6E8B3D;}
+	to {color:#fff;}
+}
+@-webkit-keyframes topt {
+	from {color:#6E8B3D;}
+	to {color:#fff;}
+}
+@keyframes redbuttom {
+	from {}
+	to {background-color:#A52A2A;}
+}
+@-webkit-keyframes redbuttom {
+	from {}
+	to {background-color:#A52A2A;}
+}
+}
+@keyframes bluebuttom {
+	from {}
+	to {background-color:#85b4d0;}
+}
+@-webkit-keyframes bluebuttom {
+	from {}
+	to {background-color:#85b4d0;}
+}
+}
+@keyframes topbut {
+	from {color:#6E8B3D;}
+	to {color:#fff;}
+}
+@-webkit-keyframes topbut {
+	from {color:#6E8B3D;}
+	to {color:#fff;}
+}
+}
+@keyframes selfif {
+	from {height:40px;width:10px;background-color:#6E8B3D;}
+	to {height:60px;width:300px;background-color:#85b4d0;}
+}
+@-webkit-keyframes selfif {
+	from {height:40px;width:10px;background-color:#6E8B3D;}
+	to {height:60px;width:300px;background-color:#85b4d0;}
+}
+}
+@keyframes notbar {
+	0% {height:20px;}
+	10% {height:80px;}
+	85%{height:80px}
+	100%{height:0px}
+}
+@-webkit-keyframes notbar {
+	0% {height:20px;}
+	10% {height:80px;}
+	85%{height:80px}
+	100%{height:0px}
+}
+}
+@keyframes notbartl {
+	0%{width:0;}
+	85%{width:100%}
+	100%%{width:100%}
+}
+@-webkit-keyframes notbartl {
+	0%{width:0;}
+	85%{width:100%}
+	100%%{width:100%}
+}
+}

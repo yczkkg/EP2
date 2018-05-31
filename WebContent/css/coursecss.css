@@ -1,0 +1,75 @@
+@charset "UTF-8";
+.course_list_title{
+	position:absolute;
+	z-index:9;
+	margin-top:40px;
+	margin-left:120px;
+	animation:ctitle 1s forwards;
+	-webkit-animation:ctitle 1s forwards;
+}
+td{overflow:hidden;white-space: nowrap;}
+.course_list_table{
+	position:absolute;
+	z-index:9;
+	margin-top:120px;
+	left:0;
+	height:60%;
+	overflow:auto;
+	animation:tbs 1s forwards;
+	-webkit-animation:tbs 1s forwards;
+}
+.course_sidebar{
+	position:absolute;
+	z-index:10;
+	margin-top:145px;
+	margin-left:0;
+	height:65%;
+	bottom:0;
+	background-color:#4676c3;
+	animation:side 1s forwards;
+	-webkit-animation:side 1s forwards;
+}
+.thetopcolor{
+	position:absolute;
+	margin-top:0;
+	margin-left:0;
+	width:180px;
+	height:25px;
+	background-color:#5b99fb;
+}
+.thetopcolor:hover{
+	animation:topcolor 1s forwards;
+	-webkit-animation:topcolor 1s forwards;
+}
+@keyframes ctitle{
+	from{margin-top:190px;margin-left:200px;}
+	to{margin-top:25px;margin-left:180px;}
+}
+@-webkit-keyframes ctitle{
+	from{margin-top:190px;margin-left:200px;}
+	to{margin-top:25px;margin-left:180px;}
+}
+@keyframes tbs{
+	from{margin-left:600px;}
+	to{margin-left:200px;}
+}
+@-webkit-keyframes tbs{
+	from{margin-left:600px;}
+	to{margin-left:200px;}
+}
+@keyframes side{
+	from{width:0;}
+	to{width:180px;}
+}
+@-webkit-keyframes side{
+	from{width:0;}
+	to{width:180px;}
+}
+@keyframes topcolor{
+	from{height:25px;}
+	to{height:100px;}
+}
+@-webkit-keyframes topcolor{
+	from{height:25px;}
+	to{height:100px;}
+}

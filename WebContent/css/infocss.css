@@ -1,0 +1,32 @@
+@charset "UTF-8";
+.info_list_title{
+	position:absolute;
+	z-index:9;
+	margin-top:40px;
+	margin-left:120px;
+	animation:ititle 1s forwards;
+	-webkit-animation:ititle 1s forwards;
+}
+.tablestyle{
+	position:absolute;
+	z-index:9;
+	margin-top:115px;
+	animation:tbs 1s forwards;
+	-webkit-animation:tbs 1s forwards;
+}
+@keyframes ititle{
+	from{margin-top:190px;margin-left:60px;}
+	to{margin-top:40px;}
+}
+@-webkit-keyframes ititle{
+	from{margin-top:190px;margin-left:60px;}
+	to{margin-top:40px}
+}
+@keyframes tbs{
+	from{margin-left:600px;}
+	to{margin-left:200px;}
+}
+@-webkit-keyframes tbs{
+	from{margin-left:600px;}
+	to{margin-left:200px;}
+}
