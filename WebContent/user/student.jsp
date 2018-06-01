@@ -11,9 +11,9 @@
 	String stu_notice = (String)session.getAttribute("stu_notice");
 	String stu_name = (String)session.getAttribute("stu_name");
 	String stu_num = (String)session.getAttribute("stu_num");
-	String stu_uid = (String)session.getAttribute("stu_uid");
+	int stu_uid = (int)session.getAttribute("stu_uid");
 	//String id="";
-	session.setAttribute("uid","2");
+	//session.setAttribute("uid","2");
 %>
 <style>
 </style>
@@ -25,7 +25,7 @@
 	<div class="topfix"><div class="topt">&nbsp&nbsp&nbsp&nbsp教务管理-学生界面</div><div class="topbdiv1"><button id="exit" class="topbuttom" onclick="location='<%=path%>/info/info_edit.jsp?'">编辑个人信息</button></div><div class="topbdiv"><button id="exit" class="topbuttom" onclick="logout()">退出登录</button></div></div>
 	<div class="selfinfo"><h2>你好，<%=stu_name %>同学</h2></div>
 	<div class="stumainfunc">
-		<div onclick="location='<%=path %>/servlet/StuInfoGetMainAction?uid=<%=stu_uid%>id=<%=stu_num %>'" style="margin-left:40px;margin-top:115px;"class="clickdiv"><div class="imgb"><center><img src="<%=path %>/pics/common/selfinfo.png" style="width:100px;height:100px;"/></center></div><div class="clickfont">个人信息</div></div>
+		<div onclick="location='<%=path %>/servlet/GetMineInfoAction?uid=<%=stu_uid%>&id=<%=stu_num %>'" style="margin-left:40px;margin-top:115px;"class="clickdiv"><div class="imgb"><center><img src="<%=path %>/pics/common/selfinfo.png" style="width:100px;height:100px;"/></center></div><div class="clickfont">个人信息</div></div>
 		<div onclick="location='<%=path %>/servlet/CourseListAction?uid=<%=stu_uid%>id=<%=stu_num %>'" style="margin-left:40px;margin-top:115px;"class="clickdiv"><div class="imgb"><center><img src="<%=path %>/pics/common/course.png" style="width:100px;height:100px;"/></center></div><div class="clickfont">课程管理</div></div>
 		<div onclick="location='<%=path %>/apr/apr_list.jsp?id=<%=stu_num %>'" style="margin-left:40px;margin-top:115px;"class="clickdiv"><div class="imgb"><center><img src="<%=path %>/pics/common/apr.png" style="width:100px;height:100px;"/></center></div><div class="clickfont">请假管理</div></div>
 		<div onclick="location='<%=path %>/score/score_list.jsp?id=<%=stu_num %>'" style="margin-left:40px;margin-top:115px;"class="clickdiv"><div class="imgb"><center><img src="<%=path %>/pics/common/score.png" style="width:100px;height:100px;"/></center></div><div class="clickfont">分数查询</div></div>

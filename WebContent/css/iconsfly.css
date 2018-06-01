@@ -7,9 +7,13 @@
 }
 .coursefly{
 	position:absolute;
-	z-index:10;
+	z-index:20;
 	animation:coursef 1s forwards;
 	-webkit-animation:coursef 1s forwards;
+}
+.iconsmaller{
+	animation:smaller 1s forwards;
+	-webkit-animation:smaller 1s forwards;
 }
 .aprfly{
 	position:absolute;
@@ -68,4 +72,12 @@
 @-webkit-keyframes hwf{
 	from{margin-top:190px;margin-left:560px;}
 	to{margin-top:40px}
+}
+@keyframes smaller{
+	from{width:100px;height:100px;}
+	to{width:80px;height:80px;}
+}
+@-webkit-keyframes smaller{
+	from{width:100px;height:100px;}
+	to{width:80px;height:80px;}
 }

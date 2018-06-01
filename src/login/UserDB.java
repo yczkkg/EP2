@@ -31,14 +31,14 @@ public class UserDB {
 			pStmt.close();
 		}catch(Exception e) {
 			e.printStackTrace();
-			System.out.println("è·å–ç”¨æˆ·ä¿¡æ¯å¤±è´¥ï¼");
+			System.out.println("»ñÈ¡ÓÃ»§ĞÅÏ¢Ê§°Ü£¡");
 		}finally {
 			DBConnection.closeConnection();
 		}
 		return flag;		
 	}
 	
-	/* è·å–æ•™å¸ˆç”¨æˆ·å */
+	/* »ñÈ¡½ÌÊ¦ÓÃ»§Ãû */
 	public String getTeaName(String username) {
         ResultSet rs=null;
     	PreparedStatement pStmt=null; 
@@ -56,14 +56,14 @@ public class UserDB {
 
         } catch (Exception e) {
            	e.printStackTrace();
-            System.out.println("è·å–æ•™å¸ˆç”¨æˆ·åå¤±è´¥ï¼");
+            System.out.println("»ñÈ¡½ÌÊ¦ÓÃ»§ÃûÊ§°Ü£¡");
         } finally{
         	DBConnection.closeConnection();
 		}		
         return user;
     }
 	
-	/* è·å–å­¦ç”Ÿç”¨æˆ·å */
+	/* »ñÈ¡Ñ§ÉúÓÃ»§Ãû */
 	public String getStuName(String username) {
         ResultSet rs=null;
     	PreparedStatement pStmt=null; 
@@ -81,17 +81,17 @@ public class UserDB {
 
         } catch (Exception e) {
            	e.printStackTrace();
-            System.out.println("è·å–æ•™å¸ˆç”¨æˆ·åå¤±è´¥ï¼");
+            System.out.println("»ñÈ¡½ÌÊ¦ÓÃ»§ÃûÊ§°Ü£¡");
         } finally{
         	DBConnection.closeConnection();
 		}		
         return user;
     }
-	/*è·å–æœ€æ–°æ¶ˆæ¯*/
+	/*»ñÈ¡×îĞÂÏûÏ¢*/
 	public String getNewNotice(String username) {
         ResultSet rs=null;
     	PreparedStatement pStmt=null; 
-    	String notice="æ— æœ€æ–°æ¶ˆæ¯";
+    	String notice="ÎŞ×îĞÂÏûÏ¢";
         try {
         	con=DBConnection.getConnection();
     		pStmt = con.prepareStatement("SELECT * FROM t_notice where N_NUM=? ORDER BY N_TIME DESC");
@@ -105,7 +105,7 @@ public class UserDB {
 
         } catch (Exception e) {
            	e.printStackTrace();
-            System.out.println("è·å–æœ€æ–°æ¶ˆæ¯å¤±è´¥ï¼");
+            System.out.println("»ñÈ¡×îĞÂÏûÏ¢Ê§°Ü£¡");
         } finally{
         	DBConnection.closeConnection();
 		}		

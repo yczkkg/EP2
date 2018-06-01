@@ -10,6 +10,22 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   <servlet>
+    <servlet-name>PreAction</servlet-name>
+    <servlet-class>login.PreAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PreAction</servlet-name>
+    <url-pattern>/servlet/PreAction</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <servlet-name>GetMineInfoAction</servlet-name>
+    <servlet-class>info.GetMineInfoAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetMineInfoAction</servlet-name>
+    <url-pattern>/servlet/GetMineInfoAction</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>CourseListAction</servlet-name>
     <servlet-class>course.CourseListAction</servlet-class>
   </servlet>

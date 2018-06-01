@@ -1,6 +1,6 @@
 @charset "UTF-8";
 .filt{
-	background-image: url(/EP2/pics/login/lgbg.jpg);
+	background-image: url(/z_school_sys_2018/pics/login/lgbg.jpg);
 	background-size: cover;
 	filter: blur(15px);
 	-webkit-filter:blur(15px);
@@ -77,6 +77,19 @@ Div{
 	animation:selfif 0.5s forwards;
 	-webkit-animation: selfif 0.5s forwards;
 }
+.selfinfo_teacher{
+	position:absolute;
+	color:#fff;
+	text-align:center;
+	line-height:30px;
+	font-size:12px;
+	left:15px;
+	top:100px;
+	z-index:20;
+	box-shadow: 0px 0px 3px 3px #8c8c8c;
+	animation:selfift 0.5s forwards;
+	-webkit-animation: selfift 0.5s forwards;
+}
 .clickdiv{
 	display:inline-block;
 	color:#474747;
@@ -118,6 +131,18 @@ Div{
 	margin-left:-250px;
 	color:#fff;
 	background-color:#315183;
+	animation:notbar 10s forwards;
+	-webkit-animation:notbar 10s forwards;
+}
+.noticebar_teacher{
+	position:absolute;
+	bottom:0;
+	z-index:21;
+	width:500px;
+	left:50%;
+	margin-left:-250px;
+	color:#fff;
+	background-color:#98878F;
 	animation:notbar 10s forwards;
 	-webkit-animation:notbar 10s forwards;
 }
@@ -179,6 +204,13 @@ Div{
 	from {height:40px;width:10px;background-color:#6E8B3D;}
 	to {height:60px;width:300px;background-color:#85b4d0;}
 }
+@keyframes selfift {
+	from {height:40px;width:10px;background-color:#6E8B3D;}
+	to {height:60px;width:300px;background-color:#98878F;}
+}
+@-webkit-keyframes selfift {
+	from {height:40px;width:10px;background-color:#6E8B3D;}
+	to {height:60px;width:300px;background-color:#98878F;}
 }
 @keyframes notbar {
 	0% {height:20px;}

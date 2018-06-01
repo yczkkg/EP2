@@ -6,6 +6,7 @@ public class TeaInfo {
 	private long t_num;
 	private int t_sex;
 	private String t_col;
+	private int t_year;
 	private long t_tel;
 	
 	public int getT_ID() {
@@ -37,6 +38,12 @@ public class TeaInfo {
 	}
 	public void setT_col(String t_col) {
 		this.t_col = t_col;
+	}
+	public int getT_year() {
+		return t_year;
+	}
+	public void setT_year(int t_year) {
+		this.t_year = t_year;
 	}
 	public long getT_tel() {
 		return t_tel;

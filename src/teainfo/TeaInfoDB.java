@@ -116,6 +116,37 @@ public class TeaInfoDB {
 		}		
         return teacher;
     }
+    /* 通过教师编号获取指定教师信息 */
+    public TeaInfo getTeacherByNum(int num) {
+        ResultSet rs=null;
+    	PreparedStatement pStmt=null; 
+    	TeaInfo teacher=null;
+        try {
+        	con=DBConnection.getConnection();
+    		pStmt = con.prepareStatement("SELECT * FROM t_teacher where T_NUM=?");
+    		pStmt.setInt(1,num);		
+    		rs = pStmt.executeQuery();
+	    	if(rs.next()){
+	    		teacher=new TeaInfo();
+	    		teacher.setT_ID(rs.getInt("T_ID"));
+	    		teacher.setT_name(rs.getString("T_NAME"));
+	    		teacher.setT_num(rs.getLong("T_NUM"));
+	    		teacher.setT_sex(rs.getInt("T_SEX"));	    		
+	    		teacher.setT_col(rs.getString("T_COL"));
+	    		teacher.setT_year(rs.getInt("T_YEAR"));
+	    		teacher.setT_tel(rs.getLong("T_TEL"));
+	    	} 
+			rs.close();
+			pStmt.close();
+
+        } catch (Exception e) {
+           	e.printStackTrace();
+            System.out.println("获取指定教师信息失败！");
+        } finally{
+        	DBConnection.closeConnection();
+		}		
+        return teacher;
+    }
 
     /* 修改教师信息 */
     public int updateTeaInfo(TeaInfo teacher) {

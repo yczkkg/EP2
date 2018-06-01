@@ -14,7 +14,7 @@ import stuinfo.StuInfo;
 
 public class StuInfoDB {
     private Connection con = null;
-    /* è·å–æ‰€æœ‰å­¦ç”Ÿä¿¡æ¯ */
+    /* »ñÈ¡ËùÓĞÑ§ÉúĞÅÏ¢ */
     public ArrayList<StuInfo> getAll() {
         ResultSet rs=null;
         Statement sql=null;
@@ -42,14 +42,14 @@ public class StuInfoDB {
 
         } catch (Exception e) {
            	e.printStackTrace();
-            System.out.println("è·å–æ‰€æœ‰å­¦ç”Ÿä¿¡æ¯å¤±è´¥ï¼");
+            System.out.println("»ñÈ¡ËùÓĞÑ§ÉúĞÅÏ¢Ê§°Ü£¡");
         } finally{
         	DBConnection.closeConnection();
 		}		
         return stuList;
     }
 
-    /* æ·»åŠ å­¦ç”Ÿä¿¡æ¯ */
+    /* Ìí¼ÓÑ§ÉúĞÅÏ¢ */
     public int insert(StuInfo student) {
     	PreparedStatement pStmt=null; 
     	int count=0;
@@ -69,14 +69,14 @@ public class StuInfoDB {
 			pStmt.close();
         } catch (Exception e) {
            	e.printStackTrace();
-            System.out.println("æ·»åŠ å­¦ç”Ÿä¿¡æ¯å¤±è´¥ï¼");
+            System.out.println("Ìí¼ÓÑ§ÉúĞÅÏ¢Ê§°Ü£¡");
         } finally{
         	DBConnection.closeConnection();
 		}		
         return count;
     }    
 
-    /* åˆ é™¤æŒ‡å®šå­¦ç”Ÿä¿¡æ¯ */
+    /* É¾³ıÖ¸¶¨Ñ§ÉúĞÅÏ¢ */
     public int delete(int id) {
      	PreparedStatement pStmt=null; 
     	int count=0;
@@ -88,13 +88,13 @@ public class StuInfoDB {
     		pStmt.close();    		
         } catch (Exception e) {
            	e.printStackTrace();
-            System.out.println("åˆ é™¤æŒ‡å®šå­¦ç”Ÿä¿¡æ¯å¤±è´¥ï¼");
+            System.out.println("É¾³ıÖ¸¶¨Ñ§ÉúĞÅÏ¢Ê§°Ü£¡");
         } finally{
         	DBConnection.closeConnection();
 		}		
         return count;
     }   
-    /* è·å–æŒ‡å®šå­¦ç”Ÿä¿¡æ¯ */
+    /* »ñÈ¡Ö¸¶¨Ñ§ÉúĞÅÏ¢ */
     public StuInfo getStudentById(int id) {
         ResultSet rs=null;
     	PreparedStatement pStmt=null; 
@@ -122,13 +122,13 @@ public class StuInfoDB {
 
         } catch (Exception e) {
            	e.printStackTrace();
-            System.out.println("è·å–æŒ‡å®šå­¦ç”Ÿä¿¡æ¯å¤±è´¥ï¼");
+            System.out.println("»ñÈ¡Ö¸¶¨Ñ§ÉúĞÅÏ¢Ê§°Ü£¡");
         } finally{
         	DBConnection.closeConnection();
 		}		
         return student;
     }
-    /*é€šè¿‡å­¦å·è·å–ä¿¡æ¯ */
+    /*Í¨¹ıÑ§ºÅ»ñÈ¡ĞÅÏ¢ */
     public StuInfo getStudentByNum(int id) {
         ResultSet rs=null;
     	PreparedStatement pStmt=null; 
@@ -156,13 +156,13 @@ public class StuInfoDB {
 
         } catch (Exception e) {
            	e.printStackTrace();
-            System.out.println("é€šè¿‡å­¦å·è·å–ä¿¡æ¯å¤±è´¥ï¼");
+            System.out.println("Í¨¹ıÑ§ºÅ»ñÈ¡ĞÅÏ¢Ê§°Ü£¡");
         } finally{
         	DBConnection.closeConnection();
 		}		
         return student;
     }
-    /* ä¿®æ”¹å­¦ç”Ÿä¿¡æ¯ */
+    /* ĞŞ¸ÄÑ§ÉúĞÅÏ¢ */
     public int updateStuInfo(StuInfo student) {
     	PreparedStatement pStmt=null; 
     	int count=0;
@@ -184,13 +184,13 @@ public class StuInfoDB {
 
         } catch (Exception e) {
            	e.printStackTrace();
-            System.out.println("æ·»åŠ å­¦ç”Ÿä¿¡æ¯å¤±è´¥ï¼");
+            System.out.println("Ìí¼ÓÑ§ÉúĞÅÏ¢Ê§°Ü£¡");
         } finally{
         	DBConnection.closeConnection();
 		}		
         return count;
     } 
-    /* é€šè¿‡å…³é”®å­—è·å–å­¦ç”Ÿä¿¡æ¯ */
+    /* Í¨¹ı¹Ø¼ü×Ö»ñÈ¡Ñ§ÉúĞÅÏ¢ */
     public List<StuInfo> getSearch(String zl,String gjz) {
         ResultSet rs=null;
         Statement sql=null;
@@ -218,7 +218,7 @@ public class StuInfoDB {
 
         } catch (Exception e) {
            	e.printStackTrace();
-            System.out.println("é€šè¿‡å…³é”®å­—è·å–å­¦ç”Ÿä¿¡æ¯å¤±è´¥ï¼");
+            System.out.println("Í¨¹ı¹Ø¼ü×Ö»ñÈ¡Ñ§ÉúĞÅÏ¢Ê§°Ü£¡");
         } finally{
         	DBConnection.closeConnection();
 		}		

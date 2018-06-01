@@ -11,9 +11,11 @@ td{overflow:hidden;white-space: nowrap;}
 .course_list_table{
 	position:absolute;
 	z-index:9;
-	margin-top:120px;
+	/*margin-top:120px;*/
+	top:130px;
 	left:0;
-	height:60%;
+	bottom:10px;
+	/*height:65%;*/
 	overflow:auto;
 	animation:tbs 1s forwards;
 	-webkit-animation:tbs 1s forwards;
@@ -21,10 +23,12 @@ td{overflow:hidden;white-space: nowrap;}
 .course_sidebar{
 	position:absolute;
 	z-index:10;
-	margin-top:145px;
-	margin-left:0;
-	height:65%;
-	bottom:0;
+	/*margin-top:145px;
+	margin-left:0;*/
+	top:130px;
+	left:0;
+	/*height:65%;*/
+	bottom:10px;
 	background-color:#4676c3;
 	animation:side 1s forwards;
 	-webkit-animation:side 1s forwards;

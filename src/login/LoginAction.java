@@ -42,12 +42,11 @@ public class LoginAction extends HttpServlet {
 			request.getSession().setAttribute("tea_name", user);
 			request.getSession().setAttribute("tea_num", username);
 			response.sendRedirect(request.getContextPath()+"/user/teacher.jsp");
-		}else if(flag==3){
-			System.out.println("学生登录成功");			
+		}else if(flag==3){		
 			String user=beanDB.getStuName(username);
-			System.out.println(user);
+			System.out.println("学生"+user+"登录成功");	
 			String notice=beanDB.getNewNotice(username);
-			System.out.println(notice);
+			//System.out.println(notice);
 			request.getSession().setAttribute("stu_name", user);
 			request.getSession().setAttribute("stu_uid", flag);
 			request.getSession().setAttribute("stu_num", username);
