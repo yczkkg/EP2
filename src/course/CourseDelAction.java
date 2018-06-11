@@ -1,6 +1,8 @@
 package course;
 
 import java.io.IOException;
+import java.util.ArrayList;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,9 +17,13 @@ public class CourseDelAction extends HttpServlet {
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CourseDB beanDB=new CourseDB();
-		int id=Integer.parseInt(request.getParameter("id"));
-	 	int count=beanDB.delete(id);	
-		response.sendRedirect(request.getContextPath()+"/servlet/CourseListAction" );
+        ArrayList<CourseInfo> courseList=new ArrayList<CourseInfo>();
+		String list[]=request.getParameterValues("delete");
+		for(int i=0;i<list.length;i++){
+	    	  System.out.println(list[i] + " ");
+	       }
+		int count=beanDB.delete(list);	
+		response.sendRedirect(request.getContextPath()+"/servlet/CourseListAction?uid=1" );
 	}
 
 }

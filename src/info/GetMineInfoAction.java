@@ -32,7 +32,8 @@ public class GetMineInfoAction extends HttpServlet {
 		}else if(uid==2) {
 			TeaInfoDB beanDB=new TeaInfoDB();
 			int num=Integer.parseInt(request.getParameter("id"));
-			TeaInfo teacher=beanDB.getTeacherById(num);
+			TeaInfo teacher=beanDB.getTeacherByNum(num);
+			System.out.println("获取教师信息成功");
 			request.getSession().setAttribute("info", teacher);
 			response.sendRedirect(request.getContextPath()+"/info/info_list.jsp?uid=2" );
 		}else if(uid==3) {

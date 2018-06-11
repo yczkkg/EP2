@@ -37,6 +37,30 @@ public class UserDB {
 		}
 		return flag;		
 	}
+	/* 获取管理员用户名 */
+	public String getAdminName(String username) {
+        ResultSet rs=null;
+    	PreparedStatement pStmt=null; 
+    	String user=null;
+        try {
+        	con=DBConnection.getConnection();
+    		pStmt = con.prepareStatement("SELECT * FROM t_admin where A_NUM=?");
+    		pStmt.setString(1,username);		
+    		rs = pStmt.executeQuery();
+	    	if(rs.next()){
+	    		user=rs.getString("A_NAME");
+	    	} 
+			rs.close();
+			pStmt.close();
+
+        } catch (Exception e) {
+           	e.printStackTrace();
+            System.out.println("获取管理员用户名失败！");
+        } finally{
+        	DBConnection.closeConnection();
+		}		
+        return user;
+    }
 	
 	/* 获取教师用户名 */
 	public String getTeaName(String username) {
@@ -86,6 +110,31 @@ public class UserDB {
         	DBConnection.closeConnection();
 		}		
         return user;
+    }
+	/*获取面向全体用户通知*/
+	public String getToAllNotice(String u_num) {
+        ResultSet rs=null;
+    	PreparedStatement pStmt=null; 
+    	String notice="无最新消息";
+        try {
+        	con=DBConnection.getConnection();
+    		pStmt = con.prepareStatement("SELECT * FROM t_notice where N_NUM=0 ORDER BY N_TIME DESC");
+    		//pStmt.setString(1,u_num);		
+    		rs = pStmt.executeQuery();
+	    	if(rs.next()){
+	    		notice=rs.getString("N_INFO");
+	    		System.out.println("1"+notice);
+	    	} 
+			rs.close();
+			pStmt.close();
+
+        } catch (Exception e) {
+           	e.printStackTrace();
+            System.out.println("获取最新消息失败！");
+        } finally{
+        	DBConnection.closeConnection();
+		}		
+        return notice;
     }
 	/*获取最新消息*/
 	public String getNewNotice(String username) {

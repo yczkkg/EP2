@@ -1,6 +1,6 @@
 @charset "UTF-8";
 .filt{
-	background-image: url(/z_school_sys_2018/pics/login/lgbg.jpg);
+	background-image: url(/EP2/pics/login/lgbg.jpg);
 	background-size: cover;
 	filter: blur(15px);
 	-webkit-filter:blur(15px);

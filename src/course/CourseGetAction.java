@@ -18,6 +18,7 @@ public class CourseGetAction extends HttpServlet {
 		int id=Integer.parseInt(request.getParameter("id"));
 		CourseInfo course=beanDB.getCourseById(id);
 		request.getSession().setAttribute("courseinfo", course);
+       	System.out.println(course.getC_ID());
 		response.sendRedirect(request.getContextPath()+"/course/course_edit.jsp" );
 	}
 }

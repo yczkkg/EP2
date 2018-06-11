@@ -25,7 +25,6 @@ public class AdminInfoDB {
 	    		admin.setA_name(rs.getString("A_NAME"));
 	    		admin.setA_num(rs.getLong("A_NUM"));
 	    		admin.setA_sex(rs.getInt("A_SEX"));	    		
-	    		admin.setA_col(rs.getString("A_COL"));
 	    		admin.setA_year(rs.getInt("A_YEAR"));	    		
 	    		admin.setA_tel(rs.getLong("A_TEL"));
 	    	} 

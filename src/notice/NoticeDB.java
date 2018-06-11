@@ -5,10 +5,12 @@ import notice.NoticeInfo;
 
 public class NoticeDB {
 	private Connection con = null;
+
+	/*»ñÈ¡Ö¸¶¨ÓÃ»§Í¨Öª*/
 	public String getNewNotice(String u_num) {
         ResultSet rs=null;
     	PreparedStatement pStmt=null; 
-    	String notice="æ— æœ€æ–°æ¶ˆæ¯";
+    	String notice="ÎŞ×îĞÂÏûÏ¢";
         try {
         	con=DBConnection.getConnection();
     		pStmt = con.prepareStatement("SELECT * FROM t_notice where N_NUM=? ORDER BY N_TIME DESC)");
@@ -16,16 +18,39 @@ public class NoticeDB {
     		rs = pStmt.executeQuery();
 	    	if(rs.next()){
 	    		notice=rs.getString("N_INFO");
+	    		System.out.println(notice);
 	    	} 
 			rs.close();
 			pStmt.close();
 
         } catch (Exception e) {
            	e.printStackTrace();
-            System.out.println("è·å–æœ€æ–°æ¶ˆæ¯å¤±è´¥ï¼");
+            System.out.println("»ñÈ¡×îĞÂÏûÏ¢Ê§°Ü£¡");
         } finally{
         	DBConnection.closeConnection();
 		}		
         return notice;
     }
+	
+    /*Ìí¼ÓÍ¨ÖªĞÅÏ¢*/
+    public int insertnotice(NoticeInfo notice) {
+    	PreparedStatement pStmt=null; 
+    	int count=0;
+        try {
+        	con=DBConnection.getConnection();
+            System.out.println("¿ªÊ¼Ìí¼ÓÍ¨ÖªĞÅÏ¢¡­¡­");
+    		pStmt = con.prepareStatement("insert into t_notice (N_NUM,N_INFO,N_TIME) values (?,?,?)");		
+    		pStmt.setString(1,notice.getN_num());		
+    		pStmt.setString(2,notice.getN_info());
+    		pStmt.setString(3,notice.getN_time());
+    		count=pStmt.executeUpdate();  
+			pStmt.close();
+        } catch (Exception e) {
+           	e.printStackTrace();
+            System.out.println("Ìí¼ÓÍ¨ÖªĞÅÏ¢Ê§°Ü£¡");
+        } finally{
+        	DBConnection.closeConnection();
+		}		
+        return count;
+    }    
 }

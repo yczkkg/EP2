@@ -19,14 +19,20 @@ public class CourseUpdateAction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CourseDB beanDB=new CourseDB();
 		   CourseInfo course=new CourseInfo();
-		   course.setC_ID(MyTools.strToint(request.getParameter("id")));
-			course.setC_name(MyTools.toChinese(request.getParameter("name")));
+		   course.setC_ID(Integer.parseInt(request.getParameter("C_ID")));
+			course.setC_name(MyTools.toChinese(request.getParameter("course_name")));
 			course.setC_cls(MyTools.toChinese(request.getParameter("cls")));
 			course.setC_gra(MyTools.strToint(request.getParameter("grade")));
 			course.setC_maj(MyTools.toChinese(request.getParameter("major")));
 			course.setC_cre(MyTools.strToint(request.getParameter("credit")));
+			course.setC_type(MyTools.strToint(request.getParameter("type")));
+			course.setC_amount(MyTools.strToint(request.getParameter("stuNum")));
+			course.setC_tea(MyTools.toChinese(request.getParameter("teacher")));
+	       	System.out.println(course.getC_ID());
+	       	System.out.println(course.getC_name());
+
 		 	int count=beanDB.updateCourse(course);	
-		response.sendRedirect(request.getContextPath()+"/servlet/CourseListAction");
+		response.sendRedirect(request.getContextPath()+"/servlet/CourseListAction?uid=1");
 	}
 
 

@@ -151,11 +151,11 @@ function logout(){
 	if(window.confirm("退出登录吗？")){
 		/*window.location.href=path+"/login/logout.jsp”+window.location.href; */
 		/*response.sendRedirect(path+"/login/logout.jsp");*/
-		window.location.href="/z_school_sys_2018/login/logout.jsp";
+		window.location.href="/EP2/login/logout.jsp";
 	}
 }
 function editselfinfo(){
-	window.location.href="/z_school_sys_2018/info/info_edit.jsp";
+	window.location.href="/EP2/info/info_edit.jsp";
 }
 
 </script>
@@ -165,7 +165,7 @@ function editselfinfo(){
 	diag.Width = 700;
 	diag.Height = 400;
 	diag.Title = "编辑个人信息";
-	diag.URL = "/z_school_sys_2018/info/info_edit.jsp";/*之后改成Servlet*/
+	diag.URL = "/EP2/info/info_edit.jsp";/*之后改成Servlet*/
 	//diag.OKEvent = zAlert;//点击确定后调用的方法
 	diag.show();
 

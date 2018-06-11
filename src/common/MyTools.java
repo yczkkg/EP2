@@ -1,4 +1,4 @@
-package common;
+﻿package common;
 
 import java.io.UnsupportedEncodingException;
 
@@ -15,7 +15,7 @@ public class MyTools {
 		}
 		return i;		
 	}
-	public static float strToFloat(String str){			//将String型数据转换为float型数据的方法 
+	public static float strToFloat(String str){			//将String型数据转换为float型数据的方法
 		if(str==null||str.equals(""))
 			str="0";
 		float f=0.0f;
@@ -31,7 +31,7 @@ public class MyTools {
 		if(str==null)
 			str="";
 		try {
-			str=new String(str.getBytes("ISO-8859-1"),"gb2312");
+			str=new String(str.getBytes("ISO-8859-1"),"UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			str="";
 			e.printStackTrace();

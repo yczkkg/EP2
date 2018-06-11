@@ -17,7 +17,7 @@
     <servlet-name>PreAction</servlet-name>
     <url-pattern>/servlet/PreAction</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <servlet-name>GetMineInfoAction</servlet-name>
     <servlet-class>info.GetMineInfoAction</servlet-class>
   </servlet>
@@ -34,12 +34,44 @@
     <url-pattern>/servlet/CourseListAction</url-pattern>
   </servlet-mapping>
   <servlet>
+    <servlet-name>CourseStuListAction</servlet-name>
+    <servlet-class>course.CourseStuListAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CourseStuListAction</servlet-name>
+    <url-pattern>/servlet/CourseStuListAction</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CourseSelectedListAction</servlet-name>
+    <servlet-class>course.CourseSelectedListAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CourseSelectedListAction</servlet-name>
+    <url-pattern>/servlet/CourseSelectedListAction</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CourseSelectAction</servlet-name>
+    <servlet-class>course.CourseSelectAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CourseSelectAction</servlet-name>
+    <url-pattern>/servlet/CourseSelectAction</url-pattern>
+  </servlet-mapping>
+  <servlet>
     <servlet-name>CourseInsertAction</servlet-name>
     <servlet-class>course.CourseInsertAction</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>CourseInsertAction</servlet-name>
     <url-pattern>/servlet/CourseInsertAction</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>CourseStuDelAction</servlet-name>
+    <servlet-class>course.CourseStuDelAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CourseStuDelAction</servlet-name>
+    <url-pattern>/servlet/CourseStuDelAction</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>CourseDelAction</servlet-name>
@@ -176,6 +208,39 @@
   <servlet-mapping>
     <servlet-name>TeaInfoSearchAction</servlet-name>
     <url-pattern>/servlet/TeaInfoSearchAction</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AprDelAction</servlet-name>
+    <servlet-class>apr.AprDelAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AprDelAction</servlet-name>
+    <url-pattern>/servlet/AprDelAction</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AprInsertAction</servlet-name>
+    <servlet-class>apr.AprInsertAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AprInsertAction</servlet-name>
+    <url-pattern>/servlet/AprInsertAction</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>AprListAction</servlet-name>
+    <servlet-class>apr.AprListAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AprListAction</servlet-name>
+    <url-pattern>/servlet/AprListAction</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+    <servlet-name>NoticeInsertAction</servlet-name>
+    <servlet-class>notice.NoticeInsertAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NoticeInsertAction</servlet-name>
+    <url-pattern>/servlet/NoticeInsertAction</url-pattern>
   </servlet-mapping>
   <servlet>
     <servlet-name>LoginAction</servlet-name>

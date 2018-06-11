@@ -18,12 +18,15 @@ public class CourseInsertAction extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		CourseDB beanDB=new CourseDB();
 		CourseInfo course=new CourseInfo();
-		course.setC_name(MyTools.toChinese(request.getParameter("name")));
+		course.setC_name(MyTools.toChinese(request.getParameter("course_name")));
 		course.setC_cls(MyTools.toChinese(request.getParameter("cls")));
 		course.setC_gra(MyTools.strToint(request.getParameter("grade")));
 		course.setC_maj(MyTools.toChinese(request.getParameter("major")));
 		course.setC_cre(MyTools.strToint(request.getParameter("credit")));	
+		course.setC_type(MyTools.strToint(request.getParameter("type")));
+		course.setC_tea(MyTools.toChinese(request.getParameter("teacher")));
+		course.setC_amount(MyTools.strToint(request.getParameter("stuNum")));
 		beanDB.insert(course);		    
-		response.sendRedirect(request.getContextPath()+"/servlet/CourseListAction");
+		response.sendRedirect(request.getContextPath()+"/servlet/CourseListAction?uid=1");
 	}
 }

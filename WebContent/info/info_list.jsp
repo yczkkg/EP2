@@ -30,6 +30,7 @@
 		tel=teacher.getT_tel();
 		year=teacher.getT_year();
 		col=teacher.getT_col();
+		System.out.println("读取教师信息成功");
 	}else if(uid.equals("3")){
 		StuInfo student=(StuInfo)session.getAttribute("info");
 		username=student.getS_name();
@@ -40,14 +41,6 @@
 		major=student.getS_maj();
 		cls=student.getS_cls();		
 	}
-	//String id = (String)session.getAttribute("get");
-	//String username = "admin00";
-	//String uid = session.getAttribute("uid").toString();
-	//String major = "软件工程";
-	//int sex = Integer.parseInt("1");
-	//String telnum = "12345678901";
-	//String grade = "2016";
-	//String sclass = "163";
 	String asfor = "";
 	if(uid.equals("1")){
 		asfor = "管理员";

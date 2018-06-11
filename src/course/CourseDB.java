@@ -1,19 +1,17 @@
 package course;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
 import common.DBConnection;
-import course.CourseInfo;
+import common.MyTools;
 
 public class CourseDB {
     private Connection con = null;
-    /* è·å–æ‰€æœ‰è¯¾ç¨‹ä¿¡æ¯ */
+    /* »ñÈ¡ËùÓĞ¿Î³ÌĞÅÏ¢ */
     public ArrayList<CourseInfo> getAll() {
         ResultSet rs=null;
         Statement sql=null;
@@ -27,9 +25,12 @@ public class CourseDB {
 	    		course.setC_ID(rs.getInt("C_ID"));
 	    		course.setC_name(rs.getString("C_NAME"));
 	    		course.setC_cls(rs.getString("C_CLS"));
+	    		course.setC_tea(rs.getString("C_TEA"));
 	    		course.setC_gra(rs.getInt("C_GRA"));
 	    		course.setC_maj(rs.getString("C_MAJ"));
 	    		course.setC_cre(rs.getFloat("C_CRE"));
+	    		course.setC_type(rs.getInt("C_TYPE"));
+	    		course.setC_amount(rs.getInt("C_AMOUNT"));
 	    		courseList.add(course);	    		
 	    	}  
 			rs.close();
@@ -37,55 +38,64 @@ public class CourseDB {
 
         } catch (Exception e) {
            	e.printStackTrace();
-            System.out.println("è·å–æ‰€æœ‰è¯¾ç¨‹ä¿¡æ¯å¤±è´¥ï¼");
+            System.out.println("»ñÈ¡ËùÓĞ¿Î³ÌĞÅÏ¢Ê§°Ü£¡");
         } finally{
         	DBConnection.closeConnection();
 		}		
         return courseList;
     }
 
-    /*æ·»åŠ è¯¾ç¨‹ä¿¡æ¯*/
+    /*Ìí¼Ó¿Î³ÌĞÅÏ¢*/
     public int insert(CourseInfo course) {
     	PreparedStatement pStmt=null; 
     	int count=0;
         try {
         	con=DBConnection.getConnection();
-    		pStmt = con.prepareStatement("insert into t_course (C_NAME,C_CLS,C_GRA,C_MAJ,C_CRE) values (?,?,?,?,?)");	
+            System.out.println("¿ªÊ¼Ìí¼Ó¿Î³ÌĞÅÏ¢¡­¡­");
+    		pStmt = con.prepareStatement("insert into t_course (C_NAME,C_CLS,C_GRA,C_MAJ,C_CRE,C_TYPE,C_AMOUNT,C_TEA) values (?,?,?,?,?,?,?,?)");	
     		pStmt.setString(1,course.getC_name());	
     		pStmt.setString(2,course.getC_cls());	
     		pStmt.setInt(3,course.getC_gra());		
     		pStmt.setString(4,course.getC_maj());
-    		pStmt.setFloat(5,course.getC_cre());	
+    		pStmt.setFloat(5,course.getC_cre());
+    		pStmt.setInt(6,course.getC_type());
+    		pStmt.setInt(7,course.getC_amount());
+    		pStmt.setString(8,course.getC_tea());
     		count=pStmt.executeUpdate();  
 			pStmt.close();
         } catch (Exception e) {
            	e.printStackTrace();
-            System.out.println("æ·»åŠ è¯¾ç¨‹ä¿¡æ¯å¤±è´¥ï¼");
+            System.out.println("Ìí¼Ó¿Î³ÌĞÅÏ¢Ê§°Ü£¡");
         } finally{
         	DBConnection.closeConnection();
 		}		
         return count;
     }    
 
-    /* åˆ é™¤è¯¾ç¨‹ä¿¡æ¯ */
-    public int delete(int id) {
-     	PreparedStatement pStmt=null; 
+    /*É¾³ı¿Î³ÌĞÅÏ¢ */
+    public int delete(String list[]) {
+    	PreparedStatement pStmt=null; 
     	int count=0;
         try {
         	con=DBConnection.getConnection();
-    		pStmt = con.prepareStatement("delete from  t_course   where C_ID=?");
-    		pStmt.setInt(1,id);		
-    		count=pStmt.executeUpdate();
-    		pStmt.close();    		
+	          System.out.println("ÕıÔÚÉ¾³ı¡­¡­");
+	          for(int i=0;i<list.length;i++){
+		          pStmt=con.prepareStatement("delete from t_course where C_ID=?");
+	        		pStmt.setInt(1,(MyTools.strToint(list[i])));
+		  	        System.out.println("É¾³ı¿Î³ÌĞÅÏ¢"+i+"CourseNum:"+list[i]);
+	      		count=pStmt.executeUpdate();  
+	  			pStmt.close();
+		       }
+        	
         } catch (Exception e) {
            	e.printStackTrace();
-            System.out.println("åˆ é™¤è¯¾ç¨‹ä¿¡æ¯å¤±è´¥ï¼");
+            System.out.println("É¾³ıÑ¡¿ÎĞÅÏ¢Ê§°Ü£¡");
         } finally{
         	DBConnection.closeConnection();
 		}		
         return count;
-    }   
-    /* è·å–æŒ‡å®šè¯¾ç¨‹ä¿¡æ¯ */
+    }
+    /* »ñÈ¡Ö¸¶¨¿Î³ÌĞÅÏ¢ */
     public CourseInfo getCourseById(int id) {
         ResultSet rs=null;
     	PreparedStatement pStmt=null; 
@@ -100,47 +110,55 @@ public class CourseDB {
 	    		course.setC_ID(rs.getInt("C_ID"));
 	    		course.setC_name(rs.getString("C_NAME"));
 	    		course.setC_cls(rs.getString("C_CLS"));
+	    		course.setC_tea(rs.getString("C_TEA"));
 	    		course.setC_gra(rs.getInt("C_GRA"));
 	    		course.setC_maj(rs.getString("C_MAJ"));
 	    		course.setC_cre(rs.getFloat("C_CRE"));
+	    		course.setC_type(rs.getInt("C_TYPE"));
+	    		course.setC_amount(rs.getInt("C_AMOUNT"));
 	    	} 
 			rs.close();
 			pStmt.close();
 
         } catch (Exception e) {
            	e.printStackTrace();
-            System.out.println("è·å–æŒ‡å®šè¯¾ç¨‹ä¿¡æ¯å¤±è´¥ï¼");
+            System.out.println("»ñÈ¡Ö¸¶¨¿Î³ÌĞÅÏ¢Ê§°Ü£¡");
         } finally{
         	DBConnection.closeConnection();
 		}		
         return course;
     }
 
-    /* ä¿®æ”¹è¯¾ç¨‹ä¿¡æ¯ */
+    /* ĞŞ¸Ä¿Î³ÌĞÅÏ¢ */
     public int updateCourse(CourseInfo course) {
     	PreparedStatement pStmt=null; 
     	int count=0;
         try {
+        	System.out.println("ĞŞ¸Ä¿Î³ÌĞÅÏ¢ÖĞ£¡");
+        	System.out.println(course.getC_ID());
         	con=DBConnection.getConnection();
-    		pStmt = con.prepareStatement("update t_course set C_NAME=?,C_CLS=?,C_GRA=?,C_MAJ=?,C_CRE=? where C_ID=?");
+    		pStmt = con.prepareStatement("update t_course set C_NAME=?,C_CLS=?,C_GRA=?,C_MAJ=?,C_CRE=?,C_TYPE=?,C_AMOUNT=?,C_TEA=? where C_ID=?");
     		pStmt.setString(1,course.getC_name());	
     		pStmt.setString(2,course.getC_cls());
     		pStmt.setInt(3,course.getC_gra());
     		pStmt.setString(4,course.getC_maj());
-    		pStmt.setFloat(5,course.getC_cre());	    		
-    		pStmt.setInt(6,course.getC_ID());		
+    		pStmt.setFloat(5,course.getC_cre());
+    		pStmt.setInt(6,course.getC_type());
+    		pStmt.setInt(7,course.getC_amount());
+    		pStmt.setString(8,course.getC_tea());
+    		pStmt.setInt(9,course.getC_ID());		
     		count=pStmt.executeUpdate();
 			pStmt.close();
 
         } catch (Exception e) {
            	e.printStackTrace();
-            System.out.println("ä¿®æ”¹è¯¾ç¨‹ä¿¡æ¯å¤±è´¥ï¼");
+            System.out.println("ĞŞ¸Ä¿Î³ÌĞÅÏ¢Ê§°Ü£¡");
         } finally{
         	DBConnection.closeConnection();
 		}		
         return count;
     } 
-    /*è·å–ç¬¦åˆæ¡ä»¶è¯¾ç¨‹ä¿¡æ¯ */
+    /*²éÑ¯·ûºÏÌõ¼ş¿Î³ÌĞÅÏ¢ */
     public List<CourseInfo> getSearch(String zl,String gjz) {
         ResultSet rs=null;
         Statement sql=null;
@@ -164,11 +182,155 @@ public class CourseDB {
 
         } catch (Exception e) {
            	e.printStackTrace();
-            System.out.println("è·å–ç¬¦åˆæ¡ä»¶è¯¾ç¨‹ä¿¡æ¯å¤±è´¥ï¼");
+            System.out.println("²éÑ¯·ûºÏÌõ¼ş¿Î³ÌĞÅÏ¢Ê§°Ü£¡");
         } finally{
         	DBConnection.closeConnection();
 		}		
         return courseList;
     }
+    /* »ñÈ¡Ö¸¶¨Ñ§Éú¿Î³ÌĞÅÏ¢£¨½öÏŞËùÔÚ×¨Òµ£© */
+    public List<CourseInfo> getAllCourseByStuNum(int num) {
+        ResultSet rs=null;
+        Statement sql=null;
+        List<CourseInfo> courseList=new ArrayList<CourseInfo>();
+        try {
+        	con=DBConnection.getConnection();
+            sql=con.createStatement();
+	    	rs=sql.executeQuery("SELECT * FROM t_course where C_MAJ = (SELECT S_MAJ FROM t_student where S_NUM="+num+")");
+	    	while(rs.next()){
+	    		CourseInfo course=new CourseInfo();
+	    		course.setC_ID(rs.getInt("C_ID"));
+	    		course.setC_name(rs.getString("C_NAME"));
+	    		course.setC_cls(rs.getString("C_CLS"));
+	    		course.setC_tea(rs.getString("C_TEA"));
+	    		course.setC_gra(rs.getInt("C_GRA"));
+	    		course.setC_maj(rs.getString("C_MAJ"));
+	    		course.setC_cre(rs.getFloat("C_CRE"));
+	    		courseList.add(course);	    		
+	    	}  
+			rs.close();
+			sql.close();
+
+        } catch (Exception e) {
+           	e.printStackTrace();
+            System.out.println("»ñÈ¡Ö¸¶¨Ñ§Éú¿Î³ÌĞÅÏ¢Ê§°Ü£¡");
+        } finally{
+        	DBConnection.closeConnection();
+		}		
+        return courseList;
+    }
+    /* »ñÈ¡Ö¸¶¨Ñ§ÉúÒÑÑ¡¿Î³ÌĞÅÏ¢ */
+    public List<CourseInfo> getSelectedCourseByStuNum(int num) {
+        ResultSet rs=null;
+        Statement sql=null;
+        List<CourseInfo> courseList=new ArrayList<CourseInfo>();
+        try {
+        	con=DBConnection.getConnection();
+            sql=con.createStatement();
+	    	rs=sql.executeQuery("SELECT * FROM t_course where C_ID IN (SELECT C_ID FROM t_score where S_NUM="+num+")");
+			//System.out.println("»ñÈ¡Ö¸¶¨Ñ§ÉúÒÑÑ¡¿Î³ÌĞÅÏ¢³É¹¦£¡");
+	    	while(rs.next()){
+	    		CourseInfo course=new CourseInfo();
+	    		course.setC_ID(rs.getInt("C_ID"));
+	    		course.setC_name(rs.getString("C_NAME"));
+	    		course.setC_cls(rs.getString("C_CLS"));
+	    		course.setC_tea(rs.getString("C_TEA"));
+	    		course.setC_gra(rs.getInt("C_GRA"));
+	    		course.setC_maj(rs.getString("C_MAJ"));
+	    		course.setC_cre(rs.getFloat("C_CRE"));
+	    		courseList.add(course);	    		
+	    	}  
+			rs.close();
+			sql.close();
+        } catch (Exception e) {
+           	e.printStackTrace();
+            System.out.println("»ñÈ¡Ö¸¶¨Ñ§ÉúÒÑÑ¡¿Î³ÌĞÅÏ¢Ê§°Ü£¡");
+        } finally{
+        	DBConnection.closeConnection();
+		}		
+        return courseList;
+    }
+    /* Ñ§ÉúÌá½»Ñ¡¿ÎĞÅÏ¢ */
+    public int setSelectCourse(String list[],int id) {
+    	PreparedStatement pStmt=null; 
+    	int count=0;
+        try {
+        	con=DBConnection.getConnection();
+	          System.out.println("ÕıÔÚÌá½»¡­¡­");
+	          for(int i=0;i<list.length;i++){
+		          pStmt=con.prepareStatement("insert into t_score (S_NUM,C_ID) values (?,?)");
+	        		pStmt.setInt(1,id);
+	        		pStmt.setInt(2,(MyTools.strToint(list[i])));
+	  	          System.out.println("Ìá½»Ñ¡¿Î"+i+" StuNum:"+id+"  CourseNum:"+list[i]);
+	      		count=pStmt.executeUpdate();  
+	  			pStmt.close();
+		       }
+        	
+        } catch (Exception e) {
+           	e.printStackTrace();
+            System.out.println("Ìá½»Ñ¡¿ÎĞÅÏ¢Ê§°Ü£¡");
+        } finally{
+        	DBConnection.closeConnection();
+		}		
+        return count;
+    }
+    /* Ñ§ÉúÉ¾³ıÑ¡¿ÎĞÅÏ¢ */
+    public int deleteCourse(String list[],int id) {
+    	PreparedStatement pStmt=null; 
+    	int count=0;
+        try {
+        	con=DBConnection.getConnection();
+	          System.out.println("ÕıÔÚÉ¾³ı¡­¡­");
+	          for(int i=0;i<list.length;i++){
+		          pStmt=con.prepareStatement("delete from t_score where S_NUM=? AND C_ID=?");
+	        		pStmt.setInt(1,id);
+	        		pStmt.setInt(2,(MyTools.strToint(list[i])));
+		  	        System.out.println("É¾³ıÑ¡¿Î"+i+" StuNum:"+id+"  CourseNum:"+list[i]);
+	      		count=pStmt.executeUpdate();  
+	  			pStmt.close();
+		       }
+        	
+        } catch (Exception e) {
+           	e.printStackTrace();
+            System.out.println("É¾³ıÑ¡¿ÎĞÅÏ¢Ê§°Ü£¡");
+        } finally{
+        	DBConnection.closeConnection();
+		}		
+        return count;
+    }
+    /* »ñÈ¡Ö¸¶¨½ÌÊ¦¿Î³ÌĞÅÏ¢£¨½öÏŞËù½Ì¿Î³Ì£© */
+    public List<CourseInfo> getAllCourseByTeaNum(int num) {
+        ResultSet rs=null;
+        Statement sql=null;
+        List<CourseInfo> courseList=new ArrayList<CourseInfo>();
+        try {
+        	con=DBConnection.getConnection();
+            sql=con.createStatement();
+	    	rs=sql.executeQuery("SELECT * FROM t_course where C_TEA = (SELECT T_NAME FROM t_teacher where T_NUM="+num+")");
+	    	while(rs.next()){
+	    		CourseInfo course=new CourseInfo();
+	    		course.setC_ID(rs.getInt("C_ID"));
+	    		course.setC_name(rs.getString("C_NAME"));
+	    		course.setC_cls(rs.getString("C_CLS"));
+	    		course.setC_tea(rs.getString("C_TEA"));
+	    		course.setC_gra(rs.getInt("C_GRA"));
+	    		course.setC_maj(rs.getString("C_MAJ"));
+	    		course.setC_cre(rs.getFloat("C_CRE"));
+	    		course.setC_type(rs.getInt("C_TYPE"));
+	    		course.setC_amount(rs.getInt("C_AMOUNT"));
+	    		courseList.add(course);	    		
+	    	}  
+			rs.close();
+			sql.close();
+
+        } catch (Exception e) {
+           	e.printStackTrace();
+            System.out.println("»ñÈ¡Ö¸¶¨½ÌÊ¦¿Î³ÌĞÅÏ¢Ê§°Ü£¡");
+        } finally{
+        	DBConnection.closeConnection();
+		}		
+        return courseList;
+    }
+
     
 }

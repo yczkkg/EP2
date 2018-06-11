@@ -11,9 +11,8 @@
 <body>
 <%
    Date dNow = new Date( );
-   SimpleDateFormat ft = 
-   new SimpleDateFormat ("yyyyMMddHHmmss");
-   out.print( "<h2 align=\"center\">" + ft.format(dNow) + "</h2>");
+   SimpleDateFormat ft = new SimpleDateFormat ("yyyyMMddHHmmss");
+  // out.print( "<h2 align=\"center\">" + ft.format(dNow) + "</h2>");
    String time = ft.format(dNow);
    out.print(time);
 %>

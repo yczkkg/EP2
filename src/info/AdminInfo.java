@@ -5,7 +5,6 @@ public class AdminInfo {
 	private String a_name;
 	private long a_num;
 	private int a_sex;
-	private String a_col;
 	private int a_year;
 	private long a_tel;
 	public int getA_ID() {
@@ -31,12 +30,6 @@ public class AdminInfo {
 	}
 	public void setA_sex(int a_sex) {
 		this.a_sex = a_sex;
-	}
-	public String getA_col() {
-		return a_col;
-	}
-	public void setA_col(String a_col) {
-		this.a_col = a_col;
 	}
 	public int getA_year() {
 		return a_year;
